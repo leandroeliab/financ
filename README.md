@@ -1,3 +1,2 @@
 # aulagithub
-# Matemática Financeira
 # financ
