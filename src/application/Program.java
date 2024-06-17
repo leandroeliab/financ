@@ -14,8 +14,6 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Parcelas parcela = new Parcelas();
-		
 		FluxoFinanceiro fluxo = new FluxoFinanceiro();
 		
 		System.out.print("Entre com a quantidade de parcelas: ");		
@@ -33,14 +31,13 @@ public class Program {
 		System.out.print("Entre a data do contrato: ");	
 		LocalDate dataInic = LocalDate.parse(sc.next());
 		LocalDate data;
-		
-		parcela = new Parcelas(valor, dataInic);
-		fluxo.addParcela(parcela);		
+
+		fluxo.addParcela(new Parcelas(valor, dataInic));		
 		
 		for (int i=0; i < quantidadeParcelas; i++) {				
 			data = dataInic.plusMonths(i+1);
-			parcela = new Parcelas(valorParcelas, data);
-			fluxo.addParcela(parcela);				
+
+			fluxo.addParcela(new Parcelas(valorParcelas, data));				
 		}
 
 		System.out.printf("Valor XTIR :"+String.format("%.9f", fluxo.calculaXTIR()));
