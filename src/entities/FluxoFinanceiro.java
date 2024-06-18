@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.DomainException;
+
 public class FluxoFinanceiro {
 
 	private List<Parcelas> fluxo = new ArrayList<>();
@@ -59,7 +61,12 @@ public class FluxoFinanceiro {
 		
 		} while (++i <= 100 && Math.abs(soma) > 0.00001);
 		
-		return ( i>=100 ) ? 0.0 : tirAtual;	
+		if (i>=100) {
+			throw new DomainException("Erro no calculo da TIR");
+		} 
+		
+		return tirAtual;	
+		
 	}
 
 	public double calculaTIR() {
@@ -95,7 +102,12 @@ public class FluxoFinanceiro {
 		
 		} while (++i <= 100 && Math.abs(soma) > 0.00001);
 		
-		return ( i>=100 ) ? 0.0 : tirAtual;	
+		if (i>=100) {
+			throw new DomainException("Erro no calculo da TIR");
+		} 
+		
+		return tirAtual;	
+		
 	}
 
 	public void addParcela(Parcelas parcela) {
