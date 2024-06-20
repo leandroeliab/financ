@@ -40,7 +40,7 @@ public class FluxoFinanceiro {
 		}
 		
 	 	double tirAtual = 0.0;
-		double tirAnterior = 2.0;
+		double tirAnterior = 20.0;
 		int modificador = (soma > 0.0) ? 1 : -1;
 		
 		i = 1;
@@ -59,9 +59,9 @@ public class FluxoFinanceiro {
 			tirAnterior = tirAtual;	
 			tirAtual = (soma < 0.0) ? tirAtual - tirAjuste : tirAtual + tirAjuste;
 		
-		} while (++i <= 100 && Math.abs(soma) > 0.00001);
+		} while (++i <= 100000 && Math.abs(soma) > 0.00001);
 		
-		if (i>=100) {
+		if (i>=100000) {
 			throw new DomainException("Erro no calculo da TIR");
 		} 
 		
@@ -80,7 +80,7 @@ public class FluxoFinanceiro {
 		}
 		
 	 	double tirAtual = 0.0;
-		double tirAnterior = 2.0;
+		double tirAnterior = 20.0;
 		int modificador = (soma > 0.0) ? 1 : -1;
 		
 		int i = 0;
@@ -100,9 +100,9 @@ public class FluxoFinanceiro {
 			tirAnterior = tirAtual;	
 			tirAtual = (soma < 0.0) ? tirAtual - tirAjuste : tirAtual + tirAjuste;
 		
-		} while (++i <= 100 && Math.abs(soma) > 0.00001);
+		} while (++i <= 100000 && Math.abs(soma) > 0.00001);
 		
-		if (i>=100) {
+		if (i>=100000) {
 			throw new DomainException("Erro no calculo da TIR");
 		} 
 		
