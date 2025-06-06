@@ -58,11 +58,13 @@ public class FluxoFinanceiro {
 			double tirAjuste = Math.abs((tirAnterior-tirAtual)/2);
 			tirAnterior = tirAtual;	
 			tirAtual = (soma < 0.0) ? tirAtual - tirAjuste : tirAtual + tirAjuste;
+			
+			
 		
 		} while (++i <= 100000 && Math.abs(soma) > 0.00001);
 		
 		if (i>=100000) {
-			throw new DomainException("Erro no calculo da TIR");
+			throw new DomainException("Erro no calculo da XTIR");
 		} 
 		
 		return tirAtual;	

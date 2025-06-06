@@ -49,7 +49,6 @@ public class FluxoFile {
 			bw.write("Valor XTIR; Valor TIR");
 			bw.newLine();
 			bw.write(String.format("%.9f", fluxo.calculaXTIR())+";"+String.format("%.9f", fluxo.calculaTIR()));
-			
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
